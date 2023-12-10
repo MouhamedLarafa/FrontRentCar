@@ -1,0 +1,40 @@
+<div class="container mt-lg-5">
+  <div *ngIf="locStatBool" class="alert alert-success" role="alert">
+    Status Approved
+  </div>
+
+  <div *ngIf="locStatReject" class="alert alert-warning" role="alert">
+    Status Rejected
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Client Name</th>
+      <th scope="col">Car Brand</th>
+      <th scope="col">Date Request</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let loc of location">
+        <th scope="row">{{loc.id}}</th>
+        <td>{{loc.user.username.valueOf()}}</td>
+        <td>{{loc.car.brand}} {{loc.car.model}}</td>
+        <td>[{{loc.startDate}}] - [{{loc.endDate}}]</td>
+        <td>
+          <div *ngIf="loc.status == 'In progress'">
+            <a class="btn" (click)="updateStatus(loc.id, 'Approved')"><i class="fa-solid fa-check link-success"></i></a>
+            <a class="btn" (click)="updateStatus(loc.id, 'Rejected')"><i class="fa-solid fa-xmark link-warning"></i></a>
+          </div>
+          <div *ngIf="loc.status != 'In progress'">
+            {{loc.status}}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

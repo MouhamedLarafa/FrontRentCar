@@ -1,0 +1,155 @@
+<div class="container col-md-11">
+  <h1 class="mt-4">{{btnValue}}</h1>
+  <div *ngIf="carAddBool" class="alert alert-success" role="alert">
+    You Are Registered Successfully.
+  </div>
+  <div *ngIf="carUpdateBool" class="alert alert-success" role="alert">
+    Car Updated Successfully.
+  </div>
+  <form [formGroup]="carFormGroup" class="mt-3" (ngSubmit)="onSubmit()">
+    <div formGroupName="carInfo">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <div class="form-floating mb-5 mb-md-0">
+            <input formControlName="brand"
+                   [(ngModel)]="carToUpdate.brand"
+                   class="form-control"
+                   type="text"
+                   placeholder="Enter Brand"/>
+            <!-- ERROR LIST-->
+              <div *ngIf="brand?.invalid && (brand?.dirty || brand?.touched)">
+                <small *ngIf="brand?.errors?.['required']" class="text-danger">
+                  Brand is required.
+                </small>
+                <small *ngIf="brand?.errors?.['minlength']" class="text-danger">
+                  Brand must be at least 2 charters long.
+                </small>
+              </div>
+            <label class="form-label">Brand</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating mb-3 mb-md-0">
+            <input formControlName="model"
+                   [(ngModel)]="carToUpdate.model"
+                   class="form-control"
+                   type="text"
+                   placeholder="Enter Model"/>
+            <!-- ERROR LIST-->
+            <div *ngIf="model?.invalid && (model?.dirty || model?.touched)">
+              <small *ngIf="model?.errors?.['required']" class="text-danger">
+                Model is required.
+              </small>
+              <small *ngIf="model?.errors?.['minlength']" class="text-danger">
+                Model must be at least 2 charters long.
+              </small>
+            </div>
+            <label class="form-label">Model</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating mb-3 mb-md-0">
+            <input formControlName="serie"
+                   [(ngModel)]="carToUpdate.serie"
+                   class="form-control"
+                   type="text"
+                   placeholder="Enter Serie"/>
+            <!-- ERROR LIST-->
+            <div *ngIf="serie?.invalid && (serie?.dirty || serie?.touched)">
+              <small *ngIf="serie?.errors?.['required']" class="text-danger">
+                Serie is required.
+              </small>
+              <small *ngIf="serie?.errors?.['minlength']" class="text-danger">
+                Serie must be at least 2 charters long.
+              </small>
+              <small *ngIf="serie?.errors?.['pattern']" class="text-danger">
+                Serie should starts with digits followed by tun and ends with digits.
+                e.g 000 tun 000
+              </small>
+            </div>
+            <label class="form-label">Serie</label>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="form-floating">
+            <select formControlName="fuelType"
+                    [(ngModel)]="carToUpdate.fuelType"
+                    class="form-select"
+                    id="floatingSelectFuel"
+                    aria-label="Floating label select example">
+              <option value="diesel">Diesel</option>
+              <option value="gas">Gas</option>
+              <option value="electric">Electric</option>
+              <option value="hybrid">Hybrid</option>
+            </select>
+            <!-- ERROR LIST-->
+            <div *ngIf="fuelType?.invalid && (fuelType?.dirty || fuelType?.touched)">
+              <small *ngIf="fuelType?.errors?.['required']" class="text-danger">
+                Fuel Type is required.
+              </small>
+            </div>
+            <label for="floatingSelectFuel">Fuel Type</label>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-floating">
+            <select formControlName="gearType"
+                    [(ngModel)]="carToUpdate.gearType"
+                    class="form-select"
+                    id="floatingSelectGear"
+                    aria-label="Floating label select example">
+              <option value="automatic">Automatic</option>
+              <option value="manual">Manual</option>
+            </select>
+            <!-- ERROR LIST-->
+            <div *ngIf="gearType?.invalid && (gearType?.dirty || gearType?.touched)">
+              <small *ngIf="gearType?.errors?.['required']" class="text-danger">
+                Gear Type is required.
+              </small>
+            </div>
+            <label for="floatingSelectGear">Gear Type</label>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="form-floating">
+          <div class="input-group input-group-lg">
+            <input type="file" accept="image/*" (change)="onSelectFile($event)">
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+          </div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div class="form-floating">
+          <input formControlName="dayPrice"
+                 [(ngModel)]="carToUpdate.dayPrice"
+                 class="form-control"
+                 type="text"
+                 placeholder="Enter Day Price"/>
+          <!-- ERROR LIST-->
+          <div *ngIf="dayPrice?.invalid && (dayPrice?.dirty || dayPrice?.touched)">
+            <small *ngIf="dayPrice?.errors?.['required']" class="text-danger">
+              Day price is required.
+            </small>
+            <small *ngIf="dayPrice?.errors?.['pattern']" class="text-danger">
+              Day price should be a number.
+            </small>
+          </div>
+          <label class="form-label">Day Price</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">{{btnValue}}</button>
+    </div>
+  </form>
+
+</div>
+
+

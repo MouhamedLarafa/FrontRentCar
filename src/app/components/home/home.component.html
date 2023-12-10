@@ -1,0 +1,86 @@
+<!-- Start Banner Area -->
+<div class="banner-area">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="banner-content">
+                    <span>Bienvenue à société super service automobile</span>
+                    <h1>Nous rendons la réparation de voiture sans tracas</h1>
+                    <p>La société super service automobile est une agence officielle d’ENNAKL AUTOMOBILES
+                        qui Représente Huit marques originaires de six pays européens appartiennent au groupe
+                        Volkswagen.</p>
+                    <div class="banner-btn">
+                        <a routerLink="/" class="get-btn">Nos marques </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 pr-0">
+                <div class="banner-img">
+                    <img src="assets/images/cars/golf.png" alt="Images">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+
+<!-- Start Brand Area -->
+<div class="brand-area">
+    <div class="container">
+        <div class="brand-slider owl-carousel owl-theme">
+            <div class="brand-item">
+                <img src="assets/images/cars/golf.png" alt="Images">
+            </div>
+
+            <div class="brand-item">
+                <img src="assets/images/cars/acc.png" alt="Images">
+            </div>
+
+            <div class="brand-item">
+                <img src="assets/images/cars/golf.png" alt="Images">
+            </div>
+
+            <div class="brand-item">
+                <img src="assets/images/cars/golf.png" alt="Images">
+            </div>
+
+
+
+        </div>
+    </div>
+    
+    <div class="row gy-5">
+        <div *ngFor="let c of cars" class="col-sm">
+
+            <div class="card" style="width: 18rem;">
+                <a routerLink="/cars/{{c.id}}">
+
+                    <img class="card-img-top" [src]="c.imageUrl" alt="Card image cap">
+                </a>
+
+                <div class="card-body">
+                    <h5 class="card-title">{{c.brand}}</h5>
+                    <p class="card-title">{{c.model}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{c.fuelType}}</li>
+                    <li class="list-group-item">{{c.gearType}}</li>
+                    <li class="list-group-item">DT <strong>{{c.dayPrice}}</strong> /DAY</li>
+                </ul>
+                <div class="card-footer">
+                    <a href="#" class="btn">
+                        <i class="fa-solid fa-circle-info link-info"></i>
+                    </a>
+                    <a routerLink="/login" class="btn btn-primary link-light">Rent Now</a> 
+                </div>
+
+                <!-- Modal -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Brand Area End -->
+
+<!-- Start Choose Area -->

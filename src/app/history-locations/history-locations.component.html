@@ -1,0 +1,28 @@
+<div class="container mt-lg-5">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+
+      <th scope="col">From</th>
+      <th scope="col">To</th>
+      <th scope="col">car</th>
+      <th scope="col">Price</th>
+      <th scope="col">Status</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let c of LocationsHistory">
+
+      <td>{{c.startDate}}</td>
+      <td>{{c.endDate}}</td>
+      <td>{{c.car.brand}} {{c.car.model}}</td>
+      <td>{{c.price}}</td>
+      <td>{{c.status}}</td>
+    </tr>
+
+
+    </tbody>
+  </table>
+</div>
+

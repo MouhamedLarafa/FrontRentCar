@@ -1,0 +1,29 @@
+<div class="container mt-lg-5">
+
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let loc of users">
+      <th scope="row">{{loc.username}}</th>
+      <td>{{loc.userFirstName}}</td>
+      <td>{{loc.userLastName}} </td>
+      <td>
+          <a class="btn" (click)="deleteUser(loc.username)">                <i class="fa-solid fa-trash link-danger"></i>
+          </a>
+
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
